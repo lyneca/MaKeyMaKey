@@ -226,7 +226,9 @@ void initializeInputs() {
 
       inputs[i].isMouseMotion = true;
     } 
-    else if ((inputs[i].keyCode == MOUSE_LEFT) || (inputs[i].keyCode == MOUSE_RIGHT)) {
+    else if ((inputs[i].keyCode == MOUSE_LEFT)
+          || (inputs[i].keyCode == MOUSE_MIDDLE)
+          || (inputs[i].keyCode == MOUSE_RIGHT)) {
       inputs[i].isMouseButton = true;
     } 
     else {
@@ -394,6 +396,9 @@ void sendMouseButtonEvents() {
           if (inputs[i].keyCode == MOUSE_LEFT) {
             Mouse.press(MOUSE_LEFT);
           } 
+          if (inputs[i].keyCode == MOUSE_MIDDLE) {
+            Mouse.press(MOUSE_MIDDLE);
+          } 
           if (inputs[i].keyCode == MOUSE_RIGHT) {
             Mouse.press(MOUSE_RIGHT);
           } 
@@ -401,6 +406,9 @@ void sendMouseButtonEvents() {
         else if (inputs[i].prevPressed) {
           if (inputs[i].keyCode == MOUSE_LEFT) {
             Mouse.release(MOUSE_LEFT);
+          } 
+          if (inputs[i].keyCode == MOUSE_MIDDLE) {
+            Mouse.release(MOUSE_MIDDLE);
           } 
           if (inputs[i].keyCode == MOUSE_RIGHT) {
             Mouse.release(MOUSE_RIGHT);
@@ -704,9 +712,3 @@ void updateOutLEDs()
     RXLED0;
   }
 }
-
-
-
-
-
-
